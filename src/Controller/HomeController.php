@@ -11,12 +11,12 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        return new Response("Que onda perruki", 200);
+        return $this->render("base.html.twig");
     }
 
     #[Route("/questions/{id}", name: "app_question_show")]
     public function show(int $id): Response
     {
-        return new Response("Recibiendo el id: $id", 200);
+        return $this->render("home/index.html.twig", ["id" => $id, "name" => "Agustin"]);
     }
 }
